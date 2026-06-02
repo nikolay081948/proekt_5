@@ -39,41 +39,41 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(232, 172);
+            label1.Location = new Point(261, 172);
             label1.Name = "label1";
-            label1.Size = new Size(75, 20);
+            label1.Size = new Size(80, 20);
             label1.TabIndex = 1;
             label1.Text = "Username";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(232, 221);
+            label2.Location = new Point(261, 221);
             label2.Name = "label2";
-            label2.Size = new Size(70, 20);
+            label2.Size = new Size(76, 20);
             label2.TabIndex = 2;
             label2.Text = "Password";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(374, 172);
+            textBox1.Location = new Point(421, 172);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
+            textBox1.Size = new Size(140, 27);
             textBox1.TabIndex = 3;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(374, 221);
+            textBox2.Location = new Point(421, 221);
             textBox2.Name = "textBox2";
             textBox2.PasswordChar = '*';
-            textBox2.Size = new Size(125, 27);
+            textBox2.Size = new Size(140, 27);
             textBox2.TabIndex = 3;
             // 
             // button1
             // 
-            button1.Location = new Point(12, 372);
+            button1.Location = new Point(14, 372);
             button1.Name = "button1";
-            button1.Size = new Size(138, 66);
+            button1.Size = new Size(155, 66);
             button1.TabIndex = 4;
             button1.Text = "Log In";
             button1.UseVisualStyleBackColor = true;
@@ -81,9 +81,9 @@
             // 
             // button2
             // 
-            button2.Location = new Point(694, 409);
+            button2.Location = new Point(781, 409);
             button2.Name = "button2";
-            button2.Size = new Size(94, 29);
+            button2.Size = new Size(106, 29);
             button2.TabIndex = 9;
             button2.Text = "Затвори";
             button2.UseVisualStyleBackColor = true;
@@ -91,15 +91,17 @@
             // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = Properties.Resources.bg_05_obsidian_forge;
+            ClientSize = new Size(900, 450);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(label2);
             Controls.Add(label1);
+            Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Name = "Login";
             Text = "Login";
             Load += Login_Load;

@@ -118,7 +118,37 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="bg-04-rose-quartz" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bg-04-rose-quartz.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg-02-midnight-indigo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bg-02-midnight-indigo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg-05-obsidian-forge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bg-05-obsidian-forge.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="64682213-man-hand-hold-market-cart-sign-shopping-online-concept-keyboard-shopping-online-background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\64682213-man-hand-hold-market-cart-sign-shopping-online-concept-keyboard-shopping-online-background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg-08-electric-cobalt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bg-08-electric-cobalt.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg-09-champagne-fizz" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bg-09-champagne-fizz.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg-03-sage-mist" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bg-03-sage-mist.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg-01-ivory-cream" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bg-01-ivory-cream.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg-07-sand-dune" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bg-07-sand-dune.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg-06-arctic-aurora" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bg-06-arctic-aurora.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg-10-cherry-blossom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bg-10-cherry-blossom.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

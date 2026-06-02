@@ -13,6 +13,10 @@ namespace Controller.Services
     {
         private readonly StoreContext _context;
 
+        public ProductService()
+        {
+            _context = new StoreContext();
+        }
         public ProductService(StoreContext context)
         {
             _context = context;

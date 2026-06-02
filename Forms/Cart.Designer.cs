@@ -37,17 +37,17 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 96);
+            dataGridView1.Location = new Point(14, 96);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(483, 342);
+            dataGridView1.Size = new Size(543, 342);
             dataGridView1.TabIndex = 0;
             // 
             // button1
             // 
-            button1.Location = new Point(12, 12);
+            button1.Location = new Point(14, 12);
             button1.Name = "button1";
-            button1.Size = new Size(165, 64);
+            button1.Size = new Size(186, 64);
             button1.TabIndex = 1;
             button1.Text = "Покажи количката";
             button1.UseVisualStyleBackColor = true;
@@ -55,9 +55,9 @@
             // 
             // button2
             // 
-            button2.Location = new Point(694, 409);
+            button2.Location = new Point(781, 409);
             button2.Name = "button2";
-            button2.Size = new Size(94, 29);
+            button2.Size = new Size(106, 29);
             button2.TabIndex = 9;
             button2.Text = "Затвори";
             button2.UseVisualStyleBackColor = true;
@@ -65,12 +65,14 @@
             // 
             // Cart
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = Properties.Resources.bg_02_midnight_indigo;
+            ClientSize = new Size(900, 450);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
+            Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Name = "Cart";
             Text = "Cart";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

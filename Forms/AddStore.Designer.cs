@@ -41,57 +41,57 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(100, 75);
+            label1.Location = new Point(112, 75);
             label1.Name = "label1";
-            label1.Size = new Size(133, 20);
+            label1.Size = new Size(137, 20);
             label1.TabIndex = 0;
             label1.Text = "Име на магазина:";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(275, 75);
+            textBox1.Location = new Point(309, 75);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(156, 27);
+            textBox1.Size = new Size(175, 27);
             textBox1.TabIndex = 1;
             // 
             // richTextBox1
             // 
-            richTextBox1.Location = new Point(100, 219);
+            richTextBox1.Location = new Point(112, 219);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(331, 181);
+            richTextBox1.Size = new Size(372, 181);
             richTextBox1.TabIndex = 2;
             richTextBox1.Text = "";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(100, 125);
+            label2.Location = new Point(112, 125);
             label2.Name = "label2";
-            label2.Size = new Size(153, 20);
+            label2.Size = new Size(159, 20);
             label2.TabIndex = 0;
             label2.Text = "Сфера на продажби:";
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(275, 125);
+            textBox2.Location = new Point(309, 125);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(156, 27);
+            textBox2.Size = new Size(175, 27);
             textBox2.TabIndex = 1;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(100, 173);
+            label3.Location = new Point(112, 173);
             label3.Name = "label3";
-            label3.Size = new Size(154, 20);
+            label3.Size = new Size(161, 20);
             label3.TabIndex = 0;
             label3.Text = "Мотиви за отваряне:";
             // 
             // button1
             // 
-            button1.Location = new Point(643, 12);
+            button1.Location = new Point(723, 12);
             button1.Name = "button1";
-            button1.Size = new Size(145, 66);
+            button1.Size = new Size(163, 66);
             button1.TabIndex = 3;
             button1.Text = "Добави";
             button1.UseVisualStyleBackColor = true;
@@ -99,9 +99,9 @@
             // 
             // button2
             // 
-            button2.Location = new Point(680, 402);
+            button2.Location = new Point(765, 402);
             button2.Name = "button2";
-            button2.Size = new Size(108, 36);
+            button2.Size = new Size(122, 36);
             button2.TabIndex = 6;
             button2.Text = "Затвори";
             button2.UseVisualStyleBackColor = true;
@@ -109,9 +109,10 @@
             // 
             // AddStore
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = Properties.Resources.bg_03_sage_mist;
+            ClientSize = new Size(900, 450);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(richTextBox1);
@@ -120,6 +121,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Name = "AddStore";
             Text = "AddStore";
             ResumeLayout(false);

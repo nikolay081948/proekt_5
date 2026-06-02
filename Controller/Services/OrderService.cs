@@ -13,12 +13,15 @@ namespace Controller.Services
     {
         private readonly StoreContext _context;
 
+        public OrderService()
+        {
+            _context = new StoreContext();
+        }
         public OrderService(StoreContext context)
         {
             _context = context;
         }
 
-        // GET ALL ORDERS
         public async Task<List<Order>> GetAllOrdersAsync()
         {
             return await _context.Orders
@@ -27,7 +30,6 @@ namespace Controller.Services
                 .ToListAsync();
         }
 
-        // GET ORDER BY ID
         public async Task<Order?> GetOrderByIdAsync(int id)
         {
             return await _context.Orders
@@ -36,17 +38,17 @@ namespace Controller.Services
                 .FirstOrDefaultAsync(o => o.Id == id);
         }
 
-        // CREATE ORDER
         public async Task CreateOrderAsync(Order order)
         {
             order.OrderedAt = DateTime.UtcNow;
+
+            order.TotalPrice=order.Product.Price*order.Product.Quantity;
 
             await _context.Orders.AddAsync(order);
 
             await _context.SaveChangesAsync();
         }
 
-        // DELETE ORDER
         public async Task DeleteOrderAsync(int id)
         {
             var order = await _context.Orders.FindAsync(id);

@@ -39,34 +39,34 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(52, 35);
+            label1.Location = new Point(58, 35);
             label1.Name = "label1";
-            label1.Size = new Size(127, 20);
+            label1.Size = new Size(130, 20);
             label1.TabIndex = 0;
             label1.Text = "Избери магазин:";
             // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(215, 35);
+            comboBox1.Location = new Point(242, 35);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 28);
+            comboBox1.Size = new Size(169, 28);
             comboBox1.TabIndex = 1;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(52, 153);
+            dataGridView1.Location = new Point(58, 153);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(489, 285);
+            dataGridView1.Size = new Size(550, 285);
             dataGridView1.TabIndex = 3;
             // 
             // button1
             // 
-            button1.Location = new Point(52, 95);
+            button1.Location = new Point(58, 95);
             button1.Name = "button1";
-            button1.Size = new Size(144, 43);
+            button1.Size = new Size(162, 43);
             button1.TabIndex = 4;
             button1.Text = "Покажи продукти";
             button1.UseVisualStyleBackColor = true;
@@ -74,9 +74,9 @@
             // 
             // button2
             // 
-            button2.Location = new Point(679, 402);
+            button2.Location = new Point(764, 402);
             button2.Name = "button2";
-            button2.Size = new Size(109, 36);
+            button2.Size = new Size(123, 36);
             button2.TabIndex = 4;
             button2.Text = "Затвори";
             button2.UseVisualStyleBackColor = true;
@@ -84,14 +84,16 @@
             // 
             // ShowProducts
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = Properties.Resources.bg_09_champagne_fizz;
+            ClientSize = new Size(900, 450);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
             Controls.Add(comboBox1);
             Controls.Add(label1);
+            Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Name = "ShowProducts";
             Text = "ShowProducts";
             Load += ShowProducts_Load;

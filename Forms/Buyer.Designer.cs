@@ -78,6 +78,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.bg_01_ivory_cream;
+            BackgroundImageLayout = ImageLayout.None;
             ClientSize = new Size(800, 450);
             Controls.Add(button4);
             Controls.Add(button3);

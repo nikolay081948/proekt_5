@@ -37,9 +37,9 @@
             // 
             // button1
             // 
-            button1.Location = new Point(72, 190);
+            button1.Location = new Point(81, 190);
             button1.Name = "button1";
-            button1.Size = new Size(132, 58);
+            button1.Size = new Size(148, 58);
             button1.TabIndex = 0;
             button1.Text = "Добави магазин";
             button1.UseVisualStyleBackColor = true;
@@ -47,9 +47,9 @@
             // 
             // button2
             // 
-            button2.Location = new Point(248, 190);
+            button2.Location = new Point(279, 190);
             button2.Name = "button2";
-            button2.Size = new Size(132, 58);
+            button2.Size = new Size(148, 58);
             button2.TabIndex = 0;
             button2.Text = "Добави продукт";
             button2.UseVisualStyleBackColor = true;
@@ -57,9 +57,9 @@
             // 
             // button3
             // 
-            button3.Location = new Point(422, 190);
+            button3.Location = new Point(475, 190);
             button3.Name = "button3";
-            button3.Size = new Size(132, 58);
+            button3.Size = new Size(148, 58);
             button3.TabIndex = 0;
             button3.Text = "Покажи магазини";
             button3.UseVisualStyleBackColor = true;
@@ -67,9 +67,9 @@
             // 
             // button4
             // 
-            button4.Location = new Point(595, 190);
+            button4.Location = new Point(669, 190);
             button4.Name = "button4";
-            button4.Size = new Size(132, 58);
+            button4.Size = new Size(148, 58);
             button4.TabIndex = 0;
             button4.Text = "Покажи продукти";
             button4.UseVisualStyleBackColor = true;
@@ -77,9 +77,9 @@
             // 
             // button5
             // 
-            button5.Location = new Point(694, 409);
+            button5.Location = new Point(781, 409);
             button5.Name = "button5";
-            button5.Size = new Size(94, 29);
+            button5.Size = new Size(106, 29);
             button5.TabIndex = 9;
             button5.Text = "Затвори";
             button5.UseVisualStyleBackColor = true;
@@ -87,14 +87,16 @@
             // 
             // Seller
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = Properties.Resources.bg_08_electric_cobalt;
+            ClientSize = new Size(900, 450);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
+            Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Name = "Seller";
             Text = "Seller";
             ResumeLayout(false);
