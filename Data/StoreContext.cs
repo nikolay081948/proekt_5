@@ -31,7 +31,7 @@ namespace Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if(!optionsBuilder.IsConfigured)
-            optionsBuilder.UseSqlServer("Server=STUDENT26;Database=OnlineStoreDB1;Trusted_Connection=True;TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-QM74TGF\\SQLEXPRESS;Database=OnlineStoreDB1;Trusted_Connection=True;TrustServerCertificate=True");
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {

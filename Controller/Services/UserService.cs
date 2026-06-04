@@ -25,6 +25,7 @@ namespace Controller.Services
         // GET ALL USERS
         public async Task<List<User>> GetAllUsersAsync()
         {
+
             return await _context.Users
                 .Include(u => u.Products)
                 .Include(u => u.Orders)
@@ -43,6 +44,22 @@ namespace Controller.Services
         // CREATE USER
         public async Task CreateUserAsync(User user)
         {
+            if (string.IsNullOrWhiteSpace(user.Username))
+                throw new Exception("Потребителското име е задължително.");
+
+            if (string.IsNullOrWhiteSpace(user.Email))
+                throw new Exception("Имейлът е задължителен.");
+
+            if (string.IsNullOrWhiteSpace(user.PasswordHash))
+                throw new Exception("Паролата е задължителна.");
+
+            if (await _context.Users.AnyAsync(x => x.Username == user.Username))
+                throw new Exception("Потребителското име вече съществува.");
+
+            if (await _context.Users.AnyAsync(x => x.Email == user.Email))
+                throw new Exception("Имейлът вече е регистриран.");
+
+           
             await _context.Users.AddAsync(user);
 
             await _context.SaveChangesAsync();
@@ -64,6 +81,12 @@ namespace Controller.Services
         }
         public async Task<User> Login(string username, string password)
         {
+            if (string.IsNullOrWhiteSpace(username))
+                throw new Exception("Въведете потребителско име.");
+
+            if (string.IsNullOrWhiteSpace(password))
+                throw new Exception("Въведете парола.");
+
             return await _context.Users.FirstOrDefaultAsync
                 (x => x.Username == username && x.PasswordHash == password);
         }

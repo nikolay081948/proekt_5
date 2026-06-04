@@ -60,19 +60,28 @@ namespace Forms
             {
                 MessageBox.Show("Попълнете всички полета!");
                 return;
-            }
-            decimal price = pr.Price * int.Parse(textBox1.Text);
+            }           
             Order order = new Order();
             if (Buyer1 == null)
             {
                 MessageBox.Show("User is null");
                 return;
             }
+            if (!int.TryParse(textBox1.Text, out int quantity))
+            {
+                MessageBox.Show("Въведете валидно количество!");
+                return;
+            }
+
             order.ProductId= pr.Id;
-            order.TotalPrice = price;
             order.OrderedAt= DateTime.Now;
             order.BuyerId = Buyer1.Id;
+            order.Quantity= int.Parse(textBox1.Text);
+            order.TotalPrice = pr.Price * order.Quantity;
 
+            pr.Quantity -= order.Quantity;
+
+            storeContext.Products.Update(pr);
             await storeContext.Orders.AddAsync(order);
             await storeContext.SaveChangesAsync();
 

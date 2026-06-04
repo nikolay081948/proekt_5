@@ -19,6 +19,7 @@ namespace Data.Data
         public int ProductId { get; set; }
 
         public Product Product { get; set; } = null!;
+        public int Quantity { get; set; }
 
         // ORDER INFO
         public decimal TotalPrice { get; set; }

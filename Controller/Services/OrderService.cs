@@ -40,9 +40,32 @@ namespace Controller.Services
 
         public async Task CreateOrderAsync(Order order)
         {
+            if (order == null)
+                throw new Exception("Невалидна поръчка.");
+
+            if (order.Quantity <= 0)
+                throw new Exception("Количеството трябва да е по-голямо от 0.");
+
+            var buyer = await _context.Users
+                .FirstOrDefaultAsync(u => u.Id == order.BuyerId);
+
+            if (buyer == null)
+                throw new Exception("Купувачът не съществува.");
+
+            var product = await _context.Products
+                .FirstOrDefaultAsync(p => p.Id == order.ProductId);
+
+            if (product == null)
+                throw new Exception("Продуктът не съществува.");
+
+            if (product.Quantity < order.Quantity)
+                throw new Exception("Недостатъчно количество в склада.");
+
             order.OrderedAt = DateTime.UtcNow;
 
-            order.TotalPrice=order.Product.Price*order.Product.Quantity;
+            order.TotalPrice = product.Price * order.Quantity;
+
+            product.Quantity -= order.Quantity;
 
             await _context.Orders.AddAsync(order);
 
@@ -51,12 +74,14 @@ namespace Controller.Services
 
         public async Task DeleteOrderAsync(int id)
         {
-            var order = await _context.Orders.FindAsync(id);
+            var order = await _context.Orders
+       .Include(o => o.Product)
+       .FirstOrDefaultAsync(o => o.Id == id);
 
             if (order == null)
-            {
-                return;
-            }
+                throw new Exception("Поръчката не е намерена.");
+
+            order.Product.Quantity += order.Quantity;
 
             _context.Orders.Remove(order);
 
