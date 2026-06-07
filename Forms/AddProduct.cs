@@ -33,51 +33,92 @@ namespace Forms
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            StoreContext storeContext = new StoreContext();
-
-            var store = (Store)comboBox1.SelectedItem;
-
-            if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text) || string.IsNullOrEmpty(richTextBox1.Text))
+            if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) ||
+                string.IsNullOrEmpty(textBox3.Text) || string.IsNullOrEmpty(richTextBox1.Text))
             {
                 MessageBox.Show("Попълнете всички полета!");
                 return;
             }
-            if (store.Products.Any(x => x.Name == textBox1.Text))
+
+            if (!int.TryParse(textBox2.Text, out int quantity) || quantity <= 0)
             {
-                var pr = (store.Products.FirstOrDefault(x => x.Name == textBox1.Text));
-                pr.Quantity += int.Parse(textBox2.Text);
+                MessageBox.Show("Въведете валидно количество!");
+                return;
             }
-            Product p = new Product();
 
-            p.Name = textBox1.Text;
-            p.Description = richTextBox1.Text;
-            p.Price = decimal.Parse(textBox3.Text);
-            p.Quantity= int.Parse(textBox2.Text);
-            p.StoreId = store.Id;
-            p.SellerId = Seller.Id;
+            if (!decimal.TryParse(textBox3.Text, out decimal price) || price <= 0)
+            {
+                MessageBox.Show("Въведете валидна цена!");
+                return;
+            }
 
-            store.Products.Add(p);
-            await storeContext.Products.AddAsync(p);
-            await storeContext.SaveChangesAsync();
+            try
+            {
+                using StoreContext storeContext = new StoreContext();
+                ProductService productService = new ProductService(storeContext);
+                StoreService storeService = new StoreService(storeContext);
 
-            MessageBox.Show("Продукта е добавен!");
+                var selectedStore = (Store)comboBox1.SelectedItem;
+                var store = await storeService.GetStoreByIdAsync(selectedStore.Id);
 
-            textBox1.Clear();
-            textBox2.Clear();
-            textBox3.Clear();
-            richTextBox1.Clear();
+                if (store == null)
+                {
+                    MessageBox.Show("Магазинът не е намерен!");
+                    return;
+                }
+
+                var existingProduct = store.Products.FirstOrDefault(x =>
+                    x.Name.ToLower() == textBox1.Text.Trim().ToLower());
+
+                if (existingProduct != null)
+                {
+                    existingProduct.Quantity += quantity;
+                    storeContext.Products.Update(existingProduct);
+                    await storeContext.SaveChangesAsync();
+                    MessageBox.Show("Количеството на продукта е обновено!");
+                    textBox1.Clear();
+                    textBox2.Clear();
+                    textBox3.Clear();
+                    richTextBox1.Clear();
+                    return;
+                }
+
+                Product p = new Product();
+                p.Name = textBox1.Text.Trim();
+                p.Description = richTextBox1.Text.Trim();
+                p.Price = price;
+                p.Quantity = quantity;
+                p.StoreId = store.Id;
+                p.SellerId = Seller.Id;
+
+                await productService.AddProductAsync(p);
+
+                MessageBox.Show("Продукта е добавен!");
+                textBox1.Clear();
+                textBox2.Clear();
+                textBox3.Clear();
+                richTextBox1.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private async void AddProduct_Load(object sender, EventArgs e)
         {
-            StoreContext storeContext = new StoreContext();
-            StoreService ss=new StoreService(storeContext);
-
-            var stores = await ss.GetAllStoresAsync();
-
-            comboBox1.DataSource = stores;
-
-            comboBox1.DisplayMember = "Name";
+            try
+            {
+                StoreContext storeContext = new StoreContext();
+                StoreService ss = new StoreService(storeContext);
+                var stores = await ss.GetAllStoresAsync();
+                comboBox1.DataSource = stores;
+                comboBox1.DisplayMember = "Name";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
     }

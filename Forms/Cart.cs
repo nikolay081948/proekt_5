@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Data;
 using Data.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Forms
 {
@@ -23,7 +24,7 @@ namespace Forms
             InitializeComponent();
             Buyer1 = user;
         }
-        private User Buyer1 {  get; set; }
+        private User Buyer1 { get; set; }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -31,11 +32,41 @@ namespace Forms
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            StoreContext storeContext = new StoreContext();
-            var orders=storeContext.Orders.Where(x=>x.BuyerId==Buyer1.Id).ToList();
-            dataGridView1.DataSource = orders;
+            try
+            {
+                using StoreContext storeContext = new StoreContext();
+                var orders = await storeContext.Orders
+                    .Include(o => o.Product)
+                    .Include(o => o.Buyer)
+                    .Where(x => x.BuyerId == Buyer1.Id)
+                    .Select(o => new
+                    {
+                        o.Id,
+                        Продукт = o.Product.Name,
+                        Количество = o.Quantity,
+                        ОбщаЦена = o.TotalPrice,
+                        Дата = o.OrderedAt
+                    })
+                    .ToListAsync();
+
+                dataGridView1.DataSource = orders;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Cart_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

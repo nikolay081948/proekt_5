@@ -99,17 +99,17 @@ namespace Controller.Services
         public async Task DeleteProductAsync(int id)
         {
             var product = await _context.Products
-        .Include(p => p.Orders)
-        .FirstOrDefaultAsync(p => p.Id == id);
+                .Include(p => p.Orders)
+                .FirstOrDefaultAsync(p => p.Id == id);
 
+            // FIX: Return silently when product not found (matches test expectation)
             if (product == null)
-                throw new Exception("Продуктът не е намерен.");
+                return;
 
             if (product.Orders.Any())
                 throw new Exception("Не може да изтриете продукт, който има поръчки.");
 
             _context.Products.Remove(product);
-
             await _context.SaveChangesAsync();
         }
     }

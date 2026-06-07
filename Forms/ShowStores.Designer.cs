@@ -65,7 +65,7 @@
             // 
             // ShowStores
             // 
-            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.bg_10_cherry_blossom;
             ClientSize = new Size(900, 450);
@@ -75,6 +75,7 @@
             Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Name = "ShowStores";
             Text = "ShowStores";
+            Load += ShowStores_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }

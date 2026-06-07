@@ -43,7 +43,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(112, 75);
             label1.Name = "label1";
-            label1.Size = new Size(137, 20);
+            label1.Size = new Size(107, 15);
             label1.TabIndex = 0;
             label1.Text = "Име на магазина:";
             // 
@@ -51,7 +51,7 @@
             // 
             textBox1.Location = new Point(309, 75);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(175, 27);
+            textBox1.Size = new Size(175, 23);
             textBox1.TabIndex = 1;
             // 
             // richTextBox1
@@ -67,7 +67,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(112, 125);
             label2.Name = "label2";
-            label2.Size = new Size(159, 20);
+            label2.Size = new Size(124, 15);
             label2.TabIndex = 0;
             label2.Text = "Сфера на продажби:";
             // 
@@ -75,7 +75,7 @@
             // 
             textBox2.Location = new Point(309, 125);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(175, 27);
+            textBox2.Size = new Size(175, 23);
             textBox2.TabIndex = 1;
             // 
             // label3
@@ -83,7 +83,7 @@
             label3.AutoSize = true;
             label3.Location = new Point(112, 173);
             label3.Name = "label3";
-            label3.Size = new Size(161, 20);
+            label3.Size = new Size(127, 15);
             label3.TabIndex = 0;
             label3.Text = "Мотиви за отваряне:";
             // 
@@ -109,7 +109,7 @@
             // 
             // AddStore
             // 
-            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.bg_03_sage_mist;
             ClientSize = new Size(900, 450);
@@ -124,6 +124,7 @@
             Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Name = "AddStore";
             Text = "AddStore";
+            Load += AddStore_Load;
             ResumeLayout(false);
             PerformLayout();
         }

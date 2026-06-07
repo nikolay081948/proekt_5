@@ -11,6 +11,7 @@ using Data.Enums;
 using Data;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Data.Data;
+using Controller.Services;
 
 namespace Forms
 {
@@ -29,31 +30,40 @@ namespace Forms
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            StoreContext storeContext = new StoreContext();
-           
-
-            if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(richTextBox1.Text))
+            if (string.IsNullOrEmpty(textBox1.Text))
             {
-                MessageBox.Show("Попълнете всички полета!");
+                MessageBox.Show("Попълнете името на магазина!");
                 return;
             }
-            if (storeContext.Stores.Any(x => x.Name == textBox1.Text))
+
+            if (textBox1.Text.Trim().Length < 3)
             {
-                MessageBox.Show("Този магазин вече съществува!");
+                MessageBox.Show("Името трябва да е поне 3 символа!");
                 return;
             }
-            Store store = new Store();
 
-            store.Name =textBox1.Text;
+            try
+            {
+                using StoreContext storeContext = new StoreContext();
+                StoreService storeService = new StoreService(storeContext);
 
-            await storeContext.Stores.AddAsync(store);
-            await storeContext.SaveChangesAsync();
+                Store store = new Store();
+                store.Name = textBox1.Text.Trim();
 
-            MessageBox.Show("Магазина е създаден!");
+                await storeService.CreateStoreAsync(store);
 
-            textBox1.Clear();
-            textBox2.Clear();
-            richTextBox1.Clear();
+                MessageBox.Show("Магазина е създаден!");
+                textBox1.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void AddStore_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

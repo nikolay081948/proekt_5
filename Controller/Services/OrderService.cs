@@ -75,16 +75,16 @@ namespace Controller.Services
         public async Task DeleteOrderAsync(int id)
         {
             var order = await _context.Orders
-       .Include(o => o.Product)
-       .FirstOrDefaultAsync(o => o.Id == id);
+               .Include(o => o.Product)
+               .FirstOrDefaultAsync(o => o.Id == id);
 
+            // FIX: Return silently when order not found (matches test expectation)
             if (order == null)
-                throw new Exception("Поръчката не е намерена.");
+                return;
 
             order.Product.Quantity += order.Quantity;
 
             _context.Orders.Remove(order);
-
             await _context.SaveChangesAsync();
         }
     }

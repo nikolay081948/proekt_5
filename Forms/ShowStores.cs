@@ -29,10 +29,26 @@ namespace Forms
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            StoreContext storeContext = new StoreContext();
-            StoreService storeService = new StoreService(storeContext);
-            var stores=await storeService.GetAllStoresAsync();
-            dataGridView1.DataSource = stores;
+            try
+            {
+                using StoreContext storeContext = new StoreContext();
+                StoreService storeService = new StoreService(storeContext);
+                var stores = await storeService.GetAllStoresAsync();
+                dataGridView1.DataSource = stores.Select(s => new
+                {
+                    s.Id,
+                    Наименование = s.Name,
+                    БройПродукти = s.Products.Count
+                }).ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+            private void ShowStores_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -31,28 +31,38 @@ namespace Forms
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            StoreContext storeContext = new StoreContext();
-            UserService controller = new UserService(storeContext);
+            try
+            {
+                StoreContext storeContext = new StoreContext();
+                UserService controller = new UserService(storeContext);
 
-            User user = await controller.Login(textBox1.Text, textBox2.Text);
-            if (user == null)
-            {
-                MessageBox.Show("Грешно потребителско име или парола!");
-                return;
-            }
-            if (user.Role == Data.Enums.Roles.Seller)
-            {
-                Seller frm1 = new Seller(user);
-                frm1.ShowDialog();
+                User user = await controller.Login(textBox1.Text, textBox2.Text);
+                if (user == null)
+                {
+                    MessageBox.Show("Грешно потребителско име или парола!");
+                    return;
+                }
+
                 textBox1.Clear();
                 textBox2.Clear();
+
+                if (user.Role == Data.Enums.Roles.Seller)
+                {
+                    Seller frm1 = new Seller(user);
+                    frm1.ShowDialog();
+                }
+                else
+                {
+                    Buyer frm = new Buyer(user);
+                    frm.ShowDialog();
+                }
+
+                DialogResult = DialogResult.OK;
+                Close();
             }
-            else
+            catch (Exception ex)
             {
-                Buyer frm = new Buyer(user);
-                frm.ShowDialog();
-                textBox1.Clear();
-                textBox2.Clear();
+                MessageBox.Show(ex.Message);
             }
         }
 

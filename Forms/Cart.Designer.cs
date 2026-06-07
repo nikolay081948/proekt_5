@@ -42,6 +42,7 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(543, 342);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // button1
             // 
@@ -65,7 +66,7 @@
             // 
             // Cart
             // 
-            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.bg_02_midnight_indigo;
             ClientSize = new Size(900, 450);
@@ -75,6 +76,7 @@
             Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Name = "Cart";
             Text = "Cart";
+            Load += Cart_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }

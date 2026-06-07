@@ -23,33 +23,31 @@ namespace Forms
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            StoreContext storeContext = new StoreContext();
-
-            User user = new User();
-
-            user.Username = textBox1.Text;
-            user.Email = textBox2.Text;
-            user.PasswordHash = textBox3.Text;
-
-            if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text))
+           if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text))
             {
                 MessageBox.Show("Попълнете всички полета!");
                 return;
             }
 
-
-            user.Role = (Roles)comboBox1.SelectedItem;
-
-            if (storeContext.Users.Any(x => x.Username == textBox1.Text))
+            try
             {
-                MessageBox.Show("Това потребителско име съществува!");
-                return;
+                using StoreContext storeContext = new StoreContext();
+                UserService userService = new UserService(storeContext);
+
+                User user = new User();
+                user.Username = textBox1.Text;
+                user.Email = textBox2.Text;
+                user.PasswordHash = textBox3.Text;
+                user.Role = (Roles)comboBox1.SelectedItem;
+
+                await userService.CreateUserAsync(user);
+
+                DialogResult = DialogResult.OK;
             }
-
-            await storeContext.Users.AddAsync(user);
-            await storeContext.SaveChangesAsync();
-
-            DialogResult = DialogResult.OK;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void SignIn_Load(object sender, EventArgs e)
