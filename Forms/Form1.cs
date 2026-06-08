@@ -23,8 +23,13 @@
             DialogResult result = frm.ShowDialog();
             if (result == DialogResult.OK)
             {
-                MessageBox.Show("Успешна влизане");
+                MessageBox.Show("Успешнo влизане");
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

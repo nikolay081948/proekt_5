@@ -59,6 +59,9 @@ namespace Forms
             {
                 MessageBox.Show(ex.Message);
             }
+            textBox1.Clear();
+            textBox2.Clear();
+            richTextBox1.Clear();
         }
 
         private void AddStore_Load(object sender, EventArgs e)

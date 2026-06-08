@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20260603110224_cdb1")]
-    partial class cdb1
+    [Migration("20260608053920_cdb2")]
+    partial class cdb2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
